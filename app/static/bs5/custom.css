@@ -1,0 +1,12 @@
+body{
+	background: #cad8f3 url(bg_img.png);	
+
+}
+
+.table{
+	margin: 0 auto;
+	height: 350px;
+	width: 565px;
+	background-color:#fff;
+	border-radius: 20px;
+}

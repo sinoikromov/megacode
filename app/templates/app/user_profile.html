@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Home page {% endblock  %}
+{% block content %}
+    <h3 class="my-4">Home page</h3>
+ {% if user.is_authenticated %}
+
+     <ul>
+         <li>{{ profile.name }}</li>
+     </ul>
+<ul>
+         <li>{{ profile.status_document }}</li>
+     </ul>
+
+{% endif %}
+
+{% endblock  %}

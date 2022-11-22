@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ae93f3ba1.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static '/illustration/web_logo.png'  %}" type="image/x-con">
+    <title>Zagran.tj</title>
+<body>
+    <header>
+        <img src="{% static 'logo/Zagran.tj.png' %} " alt="logo">
+
+        <nav>
+            <ul class="nav_links">
+                {% if user.is_superuser %}
+                 <a class="nav-link" href="{% url 'list_client' %}">Админ панел</a>
+                {% endif %}
+                 {% if user.is_authenticated %}
+                <a class="nav-link btn-primary" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'user_profile' user.pk %}" >{{ user }}</a>
+               {% else %}
+                <a class="nav-link " href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+             {% endif %}
+
+            </ul>
+        </nav>
+
+    </header>
+    <div class="offer">
+        <div class="text">Онлайн подача документов <br>для оформления Загранпаспорта</div>
+        <img src="{% static 'illustration/plane.png' %}" alt="plane" class="plane" style="width: 300px; padding-bottom: 20px; padding-top: 20px;">
+    </div>
+        <p class="oglavlenie">Виды оформления</p>
+        <div class="cards">
+            <a  href="{% url 'send_document' %}" >
+        <div class="card-conteiner1">
+
+            <img src="{% static 'illustration/card1.png' %}" alt="{% url 'send_document' %}" class="icons">
+            <p  class="card_main_text">Для <br> Совершеннолетних</p>
+            <p  class="card_text">Для граждан достигли <br> или старше 16 лет<br> возраста</p>
+
+        </div>
+         </a>
+        <div class="card-conteiner2">
+            <img  src="{% static 'illustration/card2.png' %} " alt="" class="icons">
+            <p class="card_main_text">Для <br> Повторной подачи</p>
+            <p class="card_text">Для граждан которые <br> повторно подают или утеряли <br> предыдущий заграничный паспорт</p>
+        </div>
+
+        <div class="card-conteiner3">
+            <img src="{% static '/illustration/card3.png' %}" alt="" class="icons">
+            <p class="card_main_text">Для <br> Несовершеннолетних</p>
+            <p class="card_text">Для граждан не достигших <br> совершеннолетнего <br> возраста и младенцев </p>
+        </div>
+    </div>
+    <p class="oglavlenie">Полезная информация</p>
+    <div class="q_cards">
+        <div class="q_card_conteiner">
+            <img src="{% static 'illustration/undraw_upload_re_pasx.png' %}" alt="" style="width: 240px;">
+            <a href="info/PDF Document.pdf" download=" " class="q_text">Перечень документов</a>
+        </div>
+
+        <div class="q_card_conteiner">
+            <img src="illustration/undraw_connected_world_wuay.png" alt="" style="width: 228px;">
+            <a  href="info/PDF Document.pdf" class="q_text">
+                Каким гражданам запрещена выдача Загранпаспорта?
+            </a>
+        </div>
+
+        <div class="q_card_conteiner" >
+            <img src="illustration/undraw_map_dark_re_36sy.png" alt="" style="width: 190px;">
+            <a  href="info/PDF Document.pdf" class="q_text">
+                Отеделы паспортного стола
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="conteiner">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="">О нас</a></li>
+                        <li><a href="">Политика конфиденциальности</a></li>
+                        <li><a href="">Личный кобинет</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                    
+                </div>
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="">Поддержка</a></li>
+                        <li><a href="">Способы оплаты</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                    
+                </div>
+                <div class="footer-col">
+                    <h4>Соц.сети</h4>
+                    <div class="social-links"> 
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </footer>
+    <script src="">
+    </script>
+    <style>
+       a {
+    text-decoration: none;
+         }
+    </style>
+</body>
+</html>

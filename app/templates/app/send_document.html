@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Home page {% endblock  %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if not  user.client or user.client.editable %}
+
+
+
+<div class="container-two">
+    <h3 class="h3_reg ">Форма заполнения</h3>
+<form method="post" action="" enctype="multipart/form-data" class="white">
+   {% csrf_token %}
+
+<div id="div_id_first_name" class="form-group"> <label for="id_first_name" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input placeholder="Имя" type="text" name="first_name" maxlength="100" class="textinput textInput form-control" required="" id="id_first_name"> </div> </div> <div id="div_id_second_name" class="form-group"> <label for="id_second_name" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input  placeholder="Фамилия" type="text" name="second_name" maxlength="100" class="textinput textInput form-control" required="" id="id_second_name"> </div> </div> <div id="div_id_patronymic" class="form-group"> <label for="id_patronymic" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input  placeholder="Отчество" type="text" name="patronymic" maxlength="100" class="textinput textInput form-control" required="" id="id_patronymic"> </div> </div> <div id="div_id_age" class="form-group"> <label for="id_age" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input placeholder="Возраст" type="number" name="age"  class="numberinput form-control" required="" id="id_age"> </div> </div> <div id="div_id_gender" class="form-group"> <label for="id_gender" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <select  name="gender" class="select form-control" required="" id="id_gender"> <option value="" selected="">Пол</option> <option value="male">мужчина</option> <option value="female">женшина</option>
+
+</select> </div> </div> <div id="div_id_was_born" class="form-group"> <label for="id_was_born" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input placeholder="Дата рождения" type="text" name="was_born"  class="dateinput form-control" required="" id="id_was_born"> </div> </div> <div id="div_id_email" class="form-group"> <label for="id_email" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input  placeholder="Email" type="email" name="email" maxlength="254" class="emailinput form-control" required="" id="id_email"> 
+                <div id="div_id_phone" class="form-group"> <label for="id_phone" class=" requiredField">
+                <span class="asteriskField"></span> </label> <div> <input placeholder="Телефон" type="text" name="phone" maxlength="200" class="textinput textInput form-control" required="" id="id_phone"> </div> </div></div> </div>  <div id="div_id_passport_left" class="form-group"> <label for="id_passport_left" class=" requiredField">
+                Левая сторона паспорта<span class="asteriskField"></span> </label> <div> <input type="file" name="passport_left" class="clearablefileinput form-control-file" required="" id="id_passport_left"> </div> </div> <div id="div_id_passport_right" class="form-group"> <label for="id_passport_right" class=" requiredField">
+                Правоя сторона паспорта<span class="asteriskField"></span> </label> <div> <input type="file" name="passport_right" class="clearablefileinput form-control-file" required="" id="id_passport_right"> </div> </div> <div id="div_id_recipient_amonatbonck" class="form-group"> <label for="id_recipient_amonatbonck" class=" requiredField">
+                Чек банка<span class="asteriskField">*</span> </label> <div> <input type="file" name="recipient_amonatbonck" class="clearablefileinput form-control-file" required="" id="id_recipient_amonatbonck"> </div> </div> 
+                </div>
+
+     <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+{% else %}
+<h2 class="h3_reg">Вы уже заполнили анкету проверяте личный кабинет</h2>
+
+{% endif %}
+{% endif %}
+</div>
+<style>
+.h3_reg {
+    font-size: 30px;
+}
+ .form-control {
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
+
+
+}
+
+.form-group {
+    text-align: center;
+}
+
+.container-two {
+    
+    width: 400px;
+    background-color: #fff;
+    height: 850px;
+    margin: 0 auto;
+    margin-top: 0px;
+    border-radius: 15px;
+}
+.btn-primary {
+    position: relative;
+    width: 300px;
+    bottom: 75px;
+    height: 40px;
+    align-items: center;
+    font-size: 20px;
+    padding-top:  5px;
+
+}
+
+</style>
+{% endblock  %}

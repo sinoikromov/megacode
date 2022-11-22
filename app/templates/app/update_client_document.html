@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    <p>
+    <label class="ramochka" for="id_first_name">Имя:</label>
+    <input  class="form-in" type="text" name="first_name" value="Sino" maxlength="100" required="" id="id_first_name">
+  </p>
+
+
+  <p>
+    <label  class="ramochka"  for="id_second_name">Фамилия:</label>
+    <input class="form-in" type="text" name="second_name" value="Ikromov" maxlength="100" required="" id="id_second_name">
+  </p>
+
+
+  <p>
+    <label class="ramochka" for="id_patronymic">Отчество:</label>
+    <input class="form-in" type="text" name="patronymic" value="Abduali" maxlength="100" required="" id="id_patronymic">
+  </p>
+
+
+  <p>
+    <label  class="ramochka" for="id_age">Возраст:</label>
+    <input type="number" name="age" value="18" required="" id="id_age">
+  </p>
+
+
+  <p>
+    <label class="ramochka"  for="id_gender">Пол:</label>
+    <select name="gender" required="" id="id_gender">
+  <option value="">---------</option>
+
+  <option value="male" selected="">мужчина</option>
+
+  <option value="female">женшина</option>
+
+</select>
+
+
+  </p>
+
+
+  <p>
+    <label class="ramochka"  for="id_was_born">Дата рождения:</label>
+    <input  class="form-in" type="text" name="was_born" value="01.01.2004" required="" id="id_was_born">
+  </p>
+
+
+  <p>
+    <label class="ramochka" for="id_email">Email:</label>
+    <input  class="form-in" type="email" name="email" value="sinoikrmov0@gmail.com" maxlength="254" required="" id="id_email">
+  </p>
+  <p>
+    <label class="ramochka" for="id_status_document">Статус документа:</label>
+    <select name="status_document" id="id_status_document">
+  <option value="Готово" selected="">done</option>
+  <option value="Астывна">active</option>
+  <option value="Отменён">block</option>
+</select>
+
+  </p>
+
+  <p>
+    <label class="ramochka ll" for="id_passport_left">Левая сторона паспорта:</label>
+    На данный момент: <a href="/photo/document/223211528_LYCaHcb.jpg">document/223211528_LYCaHcb.jpg</a><br>
+Изменить:
+<input type="file" name="passport_left" id="id_passport_left">
+
+  </p>
+
+  <p>
+    <label class="ramochka ll" for="id_passport_right">Правоя сторона паспорта:</label>
+    На данный момент: <a href="/photo/document/mysqlclient-1.4.6-cp38-cp38-win_amd64.whl">document/mysqlclient-1.4.6-cp38-cp38-win_amd64.whl</a><br>
+Изменить:
+<input class="form-in"  type="file" name="passport_right" id="id_passport_right">
+
+  </p>
+
+  <p>
+    <label class="ramochka ll" for="id_recipient_amonatbonck">Чек банка:</label>
+    На данный момент: <a href="/photo/amonatbonck/223211528_AXL3a9E.jpg">amonatbonck/223211528_AXL3a9E.jpg</a><br>
+Изменить:
+<input class="form-in" type="file" name="recipient_amonatbonck" id="id_recipient_amonatbonck">
+
+  </p>
+
+  <p>
+    <label class="ramochka ll" for="id_phone">Телефон:</label>
+    <input  class="form-in" type="text" name="phone" value="919503018" maxlength="200" required="" id="id_phone">
+
+
+  </p>
+
+  <p>
+    <label class="ramochka ll" for="id_editable">Editable:</label>
+    <input  class="form-in" type="checkbox" name="editable" id="id_editable">
+
+  </p>
+
+
+  <p>
+    <label class="ramochka ll" for="id_is_active">Аквтивный:</label>
+    <input  class="form-in" type="checkbox" name="is_active" id="id_is_active" checked="">
+
+
+
+
+  </p>
+    <button class="btn btn-outline-primary my-2" type="submit">Нажать</button>
+</form>
+<style>
+    .form-in {
+        width: 300px;
+        height: 35px;
+        border-radius: 3px;
+    }
+    .ramochka {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    background: white;
+    border: 2px solid black;
+    }
+    .ll {
+
+    padding-top: 5px;
+    width: 250px;
+    }
+</style>
+{% endblock %}

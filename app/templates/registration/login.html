@@ -1,0 +1,50 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bs5/bootstrap.min.css' %}" />
+     <link rel="stylesheet" type="text/css" href="{% static '/css/custom_login.css' %}" />
+</head>
+<body>
+
+
+<div class="containerr">
+    <h1 class="Logo">
+    Zagran.tj
+</h1>
+    <form method="post" action="">
+
+        {% csrf_token %}
+
+    <label for="id_username"></label>
+    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" placeholder="Имя пользователя" class="form-control">
+
+
+
+
+
+
+    <label for="id_password"></label>
+    <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="пароль" class="form-control">
+
+
+           <a href="#" class="recover_link">
+               Восстановить
+           </a>
+
+
+
+            <input type="submit" class="btn btn-primary">
+
+
+   </form>
+    <a href="#" class="link_not_enter">
+            Не удаётся войти?
+        </a><br>
+        <a href="{% url 'register'%}" class="link_reg">Зарегистрироваться</a>
+</div>
+</body>
+</html>

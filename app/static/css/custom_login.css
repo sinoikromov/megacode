@@ -1,0 +1,80 @@
+
+body{
+	background: #cad8f3 url(bg_img.png);
+	max-width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+.containerr {
+	background-color: #fff;
+    width: 400px;
+	height: 550px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border-radius: 15px;
+}
+.Logo {
+	text-align: center;
+	font-weight: 700;
+	font-size: 40px;
+	font-weight: 700;
+	padding-top: 50px;
+	color: #335AD9;
+}
+.form-control{
+	
+	width: 350px;
+	margin: 0 auto;
+	background-color: #cad8f3;
+	border: 0;
+    border-radius: 5px;
+	padding: 15px 20px;
+	margin-top: 0;
+}
+.recover_link {
+	text-decoration: none;
+	font-weight: 700;
+	color: #5A668E;
+	font-size: 19px;
+	margin-left: 25px;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+ .btn-primary {
+	margin: 0 auto;
+	font-weight: 700;
+	font-size: 20px;
+	border-radius: 5px;
+	margin-bottom: 0px;
+	color: #fff;
+	background-color: #0b349d;
+	
+	width: 350px;
+	display: block;
+	border: none;
+	padding: 12px 20px;
+}
+.link_not_enter {
+	text-decoration: none;
+	font-weight: 700;
+	color: #5A668E;
+	font-size: 19px;
+	text-align: center;
+	display: block;
+	margin-top: 40px;
+}
+.link_reg {
+	text-decoration: none;
+	font-weight: 700;
+	color: #5A668E;
+	font-size: 19px;
+	text-align: center;
+	display: block;
+}
+
+
+

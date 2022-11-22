@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+>
+<h1 class="list">List Client</h1>
+
+</div>
+
+<table class="table table-dark table-hover table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name </th>
+      <th scope="col">Surname </th>
+      <th scope="col">patronymic</th>
+      <th scope="col">status document</th>
+      <th scope="col"> was born</th>
+      <th scope="col">age </th>
+      <th scope="col">gender </th>
+      <th scope="col">phone_number </th>
+      <th scope="col">created_at </th>
+        <th scope="col">Detail</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr>
+      <th scope="row">{{ client.pk }}</th>
+       <td>{{ client.first_name }}</td>
+      <td>{{ client.second_name }}</td>
+      <td>{{ client.patronymic }}</td>
+      <td>{{ client.status_document }}</td>
+      <td>{{ client.was_born }}</td>
+      <td>{{ client.age }}</td>
+       <td>{{ client.gender }}</td>
+      <td>{{ client.phone }}</td>
+      <td>{{ client.created_at }}</td>
+
+        <td><a href="{% url 'detail_client' client.pk %}">More</a></td>
+    </tr>
+  </tbody>
+
+
+
+</table>
+<style>
+  .container-fluid{
+    padding-left: 50%;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ }
+</style>
+{% endblock %}

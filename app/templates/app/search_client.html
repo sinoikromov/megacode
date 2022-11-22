@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<hr/>
+<div class="musor">
+<div class="content-button">
+  <a href="{% url 'active_status_client' %}" class="buton one " type="submit" >Активные</a>
+  <a href="{% url 'block_status_client' %}" class="buton two" type="submit">Заблокированные</a>
+  <a href="{% url 'done_status_client' %}" class="buton  three" type="submit">Готовые</a>
+
+</div>
+</div>
+
+</div>
+  <div class="container-fluid my-3">
+    <form class="d-flex" role="search" method="get" action="{% url 'search_client' %}">
+      <input name="q" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="search" type="submit">Поиск</button>
+    </form>
+  </div>
+<table class="table table-dark table-hover table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Имя </th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Отчество</th>
+      <th scope="col">Статус документа</th>
+      <th scope="col">Дата рождения</th>
+      <th scope="col">Возраст</th>
+      <th scope="col">Пол</th>
+      <th scope="col">Номер телефона</th>
+      <th scope="col">Дата создания</th>
+        <th scope="col">Изменить</th>
+    </tr>
+  </thead>
+{% for client in object_list %}
+
+  <tbody>
+        <tr>
+      <th scope="row">{{ client.pk }}</th>
+       <td>{{ client.first_name }}</td>
+      <td>{{ client.second_name }}</td>
+      <td>{{ client.patronymic }}</td>
+      {% if  client.status_document == 'Готово' %}
+          <td style="color: #34C924;">{{ client.status_document }} </td>
+      {% elif client.status_document == 'Астывна' %}
+          <td style="color: red;">{{ client.status_document }} </td>
+      {% else %}
+        <td style="color: #FFCF48;">{{ client.status_document }} </td>
+      {% endif %}
+      <td>{{ client.was_born }}</td>
+      <td>{{ client.age }}</td>
+       <td>{{ client.gender }}</td>
+      <td>{{ client.phone }}</td>
+      <td>{{ client.created_at }}</td>
+
+        <td><a href="{% url 'detail_client' client.pk %}">More</a></td>
+    </tr>
+  </tbody>
+
+
+{% endfor %}
+</table>
+<style>
+  .container-fluid{
+    padding-left: 50%;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ }
+  body {
+    background: #black;
+  }
+  .musor {
+    padding-top: 50px;
+    background: #000;
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+  }
+  .container-fluid{
+
+
+    padding-left: 50%;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ }
+ .buton {
+
+  font-size: 20px;
+  border-radius: 10px;
+  padding-top: 12px;
+  text-align: center;
+  background-color: #007FFF;
+  width: 450px;
+  height: 50px;
+
+  color: white;
+  text-decoration: none;
+
+}
+
+ .content-button {
+
+  display: flex;
+  justify-content: space-around;
+ }
+ .one {
+  background: red;
+ }
+ .two {
+  background: #FFCF48;
+
+ }
+ .three {
+  background: #34C924;
+ }
+ .search {
+  color: #fff;
+  border: none;
+  background: blue;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+ }
+</style>
+{% endblock %}

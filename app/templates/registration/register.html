@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'bs5/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" >
+</head>
+<body>
+
+
+
+<div class="list"></div>
+
+<div class="container">
+    <h1 class="h1"><img src="" alt="">Zagran.tj</h1>
+    <h3 class="h3_reg">Регистрация</h3>
+    <form  method="post" action= " " >
+        {% csrf_token %}
+
+
+  <label for="id_username"></label>
+      <input type="text" name="username" class="form-control" placeholder="Имя пользователя" maxlength="150" autofocus required id="id_username">
+            <label for="id_email"></label>
+      <input type="email" name="email" class="form-control" placeholder="Email here" width="400px" maxlength="254" id="id_email">
+            <label for="id_password1"></label>
+      <input type="password" name="password1" placeholder="Пароль" autocomplete="new-password" required id="id_password1" class="form-control">
+            <label for="id_password2"></label>
+      <input type="password" name="password2" placeholder="Подверждение пароля" autocomplete="new-password" required id="id_password2" class="form-control-last">
+
+    </table>
+        <input colspan="2" type="submit" class="btn-primary "/>
+<p class="text">
+    Нажимая "продолжить" вы соглашаетесь c <br> <a href="#" class="text_link">Условиями использования и Политикой конфиденциальности </a>
+</p>
+
+   </form>
+    <p class="button_text">Уже зарегестрилованы? <a href="{% url 'login'%}" class="button_text_link">Войти</a></p>
+</div>
+
+</body>
+</html>
